@@ -149,6 +149,35 @@ canvas{display:block}
 .blog-link{display:inline-flex;align-items:center;gap:0.5rem;color:var(--teal);text-decoration:none;font-weight:600;font-size:0.9rem;transition:color 0.3s}
 .blog-link:hover{color:var(--gold)}
 
+/* AI PROJECTS */
+#ai-projects{flex-direction:column;padding:6rem 2rem}
+.ai-title{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:800;margin-bottom:0.5rem;text-align:center}
+.ai-subtitle{color:var(--muted);margin-bottom:2.5rem;text-align:center;font-size:0.95rem;max-width:700px}
+.ai-subtitle strong{color:var(--gold)}
+.ai-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.35rem 1rem;border-radius:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);font-size:0.75rem;color:#a78bfa;margin-bottom:1.5rem;font-weight:600;letter-spacing:0.5px}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1100px;width:100%}
+.ai-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:1.75rem;opacity:0;transform:translateY(30px);transition:all 0.6s;position:relative;overflow:hidden}
+.ai-card.visible{opacity:1;transform:translateY(0)}
+.ai-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0}
+.ai-card:nth-child(1)::before{background:linear-gradient(90deg,var(--gold),#fbbf24)}
+.ai-card:nth-child(2)::before{background:linear-gradient(90deg,#6b9fdb,#9b8acc)}
+.ai-card:nth-child(3)::before{background:linear-gradient(90deg,#e31837,#ff6b6b)}
+.ai-card:nth-child(4)::before{background:linear-gradient(90deg,#06b6d4,#22d3ee)}
+.ai-card h3{font-size:1.15rem;font-weight:700;margin-bottom:0.25rem;display:flex;align-items:center;gap:0.5rem}
+.ai-card .ai-card-type{font-size:0.7rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:0.75rem}
+.ai-card p{color:var(--muted);font-size:0.85rem;margin-bottom:1rem;line-height:1.7}
+.ai-card-tech{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem}
+.ai-card-tech span{padding:0.2rem 0.55rem;border-radius:4px;font-size:0.65rem;font-weight:600;background:rgba(6,182,212,0.1);color:var(--teal);border:1px solid rgba(6,182,212,0.15)}
+.ai-card-links{display:flex;gap:0.75rem;flex-wrap:wrap}
+.ai-card-links a{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;color:var(--gold);text-decoration:none;font-weight:600;transition:color 0.3s}
+.ai-card-links a:hover{color:#fbbf24}
+.ai-card-links a svg{width:14px;height:14px;fill:currentColor}
+.ai-powered-by{text-align:center;margin-top:2.5rem;padding:1.5rem 2rem;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:12px;max-width:700px}
+.ai-powered-by h4{font-size:1rem;font-weight:700;margin-bottom:0.5rem;color:#a78bfa}
+.ai-powered-by p{color:var(--muted);font-size:0.85rem;line-height:1.7}
+.ai-powered-by strong{color:var(--text)}
+@media(max-width:768px){.ai-grid{grid-template-columns:1fr}}
+
 /* CONNECT */
 #connect{flex-direction:column;padding:6rem 2rem;text-align:center}
 .connect-title{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:800;margin-bottom:1rem}
@@ -192,6 +221,7 @@ canvas{display:block}
     <li><a href="#map-section">Journey</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#beyond">Beyond</a></li>
+    <li><a href="#ai-projects">Projects</a></li>
     <li><a href="#connect">Connect</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -201,6 +231,7 @@ canvas{display:block}
   <a href="#map-section" onclick="closeMobile()">Journey</a>
   <a href="#skills" onclick="closeMobile()">Skills</a>
   <a href="#beyond" onclick="closeMobile()">Beyond</a>
+  <a href="#ai-projects" onclick="closeMobile()">Projects</a>
   <a href="#connect" onclick="closeMobile()">Connect</a>
 </div>
 
@@ -215,6 +246,7 @@ canvas{display:block}
   <div class="minimap-dot" data-label="Synchrony" data-target="ch-sync"></div>
   <div class="minimap-dot" data-label="Skills" data-target="skills"></div>
   <div class="minimap-dot" data-label="Beyond" data-target="beyond"></div>
+  <div class="minimap-dot" data-label="Projects" data-target="ai-projects"></div>
   <div class="minimap-dot" data-label="Connect" data-target="connect"></div>
 </div>
 
@@ -538,6 +570,118 @@ canvas{display:block}
   </div>
 </section>
 
+<!-- AI PROJECTS -->
+<section class="section" id="ai-projects">
+  <div style="max-width:1100px;width:100%;padding:0 1rem;display:flex;flex-direction:column;align-items:center">
+    <span class="ai-badge">&#129302; Built with AI</span>
+    <h2 class="ai-title">Projects Built with Claude Code</h2>
+    <p class="ai-subtitle">Four production applications shipped in <strong>5 days</strong> &mdash; powered by <strong>Claude Code</strong> (Anthropic) and a decade of engineering experience.</p>
+    <div class="ai-grid">
+
+      <div class="ai-card" data-ai-card>
+        <h3>Portfolio</h3>
+        <div class="ai-card-type">Static Site &bull; GitHub Pages</div>
+        <p>An interactive, animated narrative of my engineering career. Features a geographic journey map, canvas particle system, physics-based volleyball sim, and animated skill bars.</p>
+        <div class="ai-card-tech">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>Canvas API</span>
+          <span>Vanilla JS</span>
+        </div>
+        <div class="ai-card-links">
+          <a href="https://ajay-kandakatla.github.io/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Live
+          </a>
+          <a href="https://github.com/Ajay-Kandakatla/Ajay-Kandakatla.github.io" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="ai-card" data-ai-card>
+        <h3>ArchFlow</h3>
+        <div class="ai-card-type">Full-Stack &bull; Railway + MongoDB Atlas</div>
+        <p>Architecture diagram builder with drag-and-drop nodes, smart connections, auto-save, image uploads, templates, and an AI prompt panel. Fully persisted with MongoDB Atlas.</p>
+        <div class="ai-card-tech">
+          <span>React 19</span>
+          <span>TypeScript</span>
+          <span>Express.js</span>
+          <span>MongoDB Atlas</span>
+          <span>JWT</span>
+          <span>Google OAuth</span>
+          <span>GridFS</span>
+          <span>Playwright</span>
+        </div>
+        <div class="ai-card-links">
+          <a href="https://archflow-production.up.railway.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Live
+          </a>
+          <a href="https://github.com/Ajay-Kandakatla/archflow" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="ai-card" data-ai-card>
+        <h3>Nexus</h3>
+        <div class="ai-card-type">Credit Platform &bull; Vercel</div>
+        <p>Next-gen credit servicing platform with a plugin-based architecture, financial health dashboard, AI co-pilot assistant, dispute wizard, and event-driven communication.</p>
+        <div class="ai-card-tech">
+          <span>React 19</span>
+          <span>TypeScript</span>
+          <span>Zustand</span>
+          <span>React Query</span>
+          <span>Framer Motion</span>
+          <span>Zod</span>
+          <span>Vitest</span>
+          <span>MSW</span>
+        </div>
+        <div class="ai-card-links">
+          <a href="https://nexus-platform1.vercel.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Live
+          </a>
+          <a href="https://github.com/Ajay-Kandakatla/nexus" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="ai-card" data-ai-card>
+        <h3>KidsDraw</h3>
+        <div class="ai-card-type">Drawing App &bull; Vercel + Supabase</div>
+        <p>A touch-optimized drawing app built for my daughter. Features freehand drawing with Konva.js, reference image search, cloud-saved gallery, and PWA support for offline use.</p>
+        <div class="ai-card-tech">
+          <span>React 19</span>
+          <span>TypeScript</span>
+          <span>Konva.js</span>
+          <span>Supabase</span>
+          <span>Zustand</span>
+          <span>Pixabay API</span>
+          <span>PWA</span>
+        </div>
+        <div class="ai-card-links">
+          <a href="https://kidsdraw-orcin.vercel.app/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Live
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ai-powered-by">
+      <h4>Powered by Claude Code + Claude Opus</h4>
+      <p>All four projects were built in <strong>5 days</strong> using <strong>Claude Code</strong> (Anthropic's AI coding agent) powered by <strong>Claude Opus</strong>. I brought the architectural vision and product decisions; Claude Code handled the execution velocity &mdash; from React components to Express middleware to MongoDB schemas. All projects are open source on <a href="https://github.com/Ajay-Kandakatla" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:600">GitHub</a>.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CONNECT -->
 <section class="section" id="connect">
   <div style="display:flex;flex-direction:column;align-items:center">
@@ -701,7 +845,7 @@ drawParticles();
 /* ===== SCROLL ENGINE ===== */
 var progressBar=$('#progress-bar');
 var nav=$('#nav');
-var sectionIds=['hero','map-section','ch-wilm','ch-orbit','ch-ss','ch-ibm','ch-att','ch-sync','skills','beyond','connect'];
+var sectionIds=['hero','map-section','ch-wilm','ch-orbit','ch-ss','ch-ibm','ch-att','ch-sync','skills','beyond','ai-projects','connect'];
 var minimapDots=$$('.minimap-dot');
 var routePath=$('#route-path');
 var airplane=$('#airplane');
@@ -829,7 +973,7 @@ for(var mci2=0;mci2<mapCities.length;mci2++){
 var navLinks=$$('.nav-links a');
 function updateNavLinks(){
   var active=getActiveSection();
-  var map=[0,1,1,1,1,1,1,1,2,3,4];
+  var map=[0,1,1,1,1,1,1,1,2,3,4,5];
   for(var ni=0;ni<navLinks.length;ni++){
     navLinks[ni].classList.toggle('active',ni===(map[active]||0));
   }
@@ -947,6 +1091,21 @@ var beyondObserver=new IntersectionObserver(function(entries){
 var beyondCards=$$('[data-beyond]');
 for(var bc=0;bc<beyondCards.length;bc++){
   beyondObserver.observe(beyondCards[bc]);
+}
+
+/* ===== AI PROJECTS REVEAL ===== */
+var aiObserver=new IntersectionObserver(function(entries){
+  for(var ai=0;ai<entries.length;ai++){
+    if(entries[ai].isIntersecting){
+      entries[ai].target.classList.add('visible');
+      aiObserver.unobserve(entries[ai].target);
+    }
+  }
+},{threshold:0.15});
+var aiCards=$$('[data-ai-card]');
+for(var ac=0;ac<aiCards.length;ac++){
+  aiCards[ac].style.transitionDelay=(ac*0.15)+'s';
+  aiObserver.observe(aiCards[ac]);
 }
 
 /* ===== VOLLEYBALL PHYSICS ===== */
